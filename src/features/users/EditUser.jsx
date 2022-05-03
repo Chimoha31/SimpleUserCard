@@ -1,31 +1,20 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
 import TextField from "../../components/TextField";
-import { addUser } from "./userSlice";
-import { v4 as uuidv4 } from 'uuid';
 
-const AddUser = () => {
+const EditUser = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const uuid = uuidv4();
-
   const [values, setValues] = useState({
     name: "",
     email: "",
   });
 
-  const handleAddUser = () => {
+  const handleEditUser = () => {
     setValues({
       name: "",
       email: "",
-    });
-    dispatch(addUser({
-      id: uuid,
-      name: values.name,
-      email: values.email
-    }))
+    })
     navigate("/");
     // console.log(values);
   }
@@ -45,9 +34,9 @@ const AddUser = () => {
         value={values.email}
         inputProps={{ type: "email", placeholder: "teddy@email.com" }}
       />
-      <Button onClick={handleAddUser}>Submit</Button>
+      <Button onClick={handleEditUser}>Edit</Button>
     </div>
   );
 };
 
-export default AddUser;
+export default EditUser;
