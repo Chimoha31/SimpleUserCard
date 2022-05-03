@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Button from "../../components/Button";
 
 const UserList = () => {
@@ -64,7 +65,7 @@ const UserList = () => {
 
   return (
     <div>
-      <Button>Add User</Button>
+      <Link to="add-user"><Button>Add User</Button></Link>
       <div className="grid gap-5 md:grid-cols-2">
         {users.length ? (
           renderCard()
